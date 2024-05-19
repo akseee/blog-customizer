@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { CSSProperties, useState } from 'react';
 import { defaultArticleState } from 'src/constants/articleProps';
 import { ArticleParamsForm } from '../article-params-form';
@@ -10,8 +9,8 @@ export const App = () => {
 		useState(defaultArticleState);
 
 	return (
-		<div
-			className={clsx(styles.main)}
+		<main
+			className={styles.main}
 			style={
 				{
 					'--font-family': currentParamsState.fontFamilyOption.value,
@@ -23,6 +22,6 @@ export const App = () => {
 			}>
 			<ArticleParamsForm setCurrentParamsState={setCurrentParamsState} />
 			<Article />
-		</div>
+		</main>
 	);
 };
