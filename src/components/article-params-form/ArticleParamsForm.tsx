@@ -2,7 +2,7 @@ import { ArrowButton } from 'components/arrow-button';
 import { Button } from 'components/button';
 
 import styles from './ArticleParamsForm.module.scss';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 
 import {
@@ -23,15 +23,18 @@ type ParamStateFromProps = {
 	setCurrentParamsState: (articleState: ArticleStateType) => void;
 };
 
-const defaultFontFamily = defaultArticleState.fontFamilyOption;
-const defaultFontSize = defaultArticleState.fontSizeOption;
-const defaultFontColor = defaultArticleState.fontColor;
-const defaultBackgroundColor = defaultArticleState.backgroundColor;
-const defaultcontentWidth = defaultArticleState.contentWidth;
-
 export const ArticleParamsForm = ({
 	setCurrentParamsState,
 }: ParamStateFromProps) => {
+	const formRef = useRef<HTMLDivElement>(null);
+	const [isOpen, setIsOpen] = useState(false);
+
+	const defaultFontFamily = defaultArticleState.fontFamilyOption;
+	const defaultFontSize = defaultArticleState.fontSizeOption;
+	const defaultFontColor = defaultArticleState.fontColor;
+	const defaultBackgroundColor = defaultArticleState.backgroundColor;
+	const defaultcontentWidth = defaultArticleState.contentWidth;
+
 	const setParamsToDefault = () => {
 		setFontFamily(defaultFontFamily);
 		setFontSize(defaultFontSize);
@@ -39,8 +42,6 @@ export const ArticleParamsForm = ({
 		setBackgroundColor(defaultBackgroundColor);
 		setContentWidth(defaultcontentWidth);
 	};
-
-	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const [fontFamily, setFontFamily] = useState(defaultFontFamily);
 	const [fontSize, setFontSize] = useState(defaultFontSize);
@@ -50,9 +51,23 @@ export const ArticleParamsForm = ({
 	);
 	const [contentWidth, setContentWidth] = useState(defaultcontentWidth);
 
+	useEffect(() => {
+		if (!isOpen) return;
+		const handleClickOutside = (e: MouseEvent) => {
+			if (isOpen && !formRef.current?.contains(e.target as Node)) {
+				setIsOpen(false);
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [isOpen]);
+
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log('change: submit form');
 		const currentParamsData = {
 			fontFamilyOption: fontFamily,
 			fontSizeOption: fontSize,
@@ -69,7 +84,7 @@ export const ArticleParamsForm = ({
 	};
 
 	return (
-		<>
+		<div ref={formRef}>
 			<ArrowButton isOpen={isOpen} setIsOpen={() => setIsOpen(!isOpen)} />
 			{isOpen && (
 				<aside className={clsx(styles.container, styles.container_open)}>
@@ -120,6 +135,6 @@ export const ArticleParamsForm = ({
 					</form>
 				</aside>
 			)}
-		</>
+		</div>
 	);
 };
