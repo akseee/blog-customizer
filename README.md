@@ -8,7 +8,7 @@
 
 Перечисли основные технологии и инструменты, использованные в проекте:
 
-- HTML, SCSS, JavaScript, TS
+- SCSS, JavaScript, TS, HTML
 - React
 - Stylelint, Husky, Storybook, Webpack
 
