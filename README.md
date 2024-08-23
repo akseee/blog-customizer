@@ -1,12 +1,12 @@
-# Проектная работа: Вёрстка проекта Блог-кастомайзер
+# Academic work: Blog Customizer
 
-В ходе этой проектной работы реализована кастомизация страницы блога через открывающуюся панель.
+In this project, we implemented the customization of a blog page through an opening sidebar panel.
 
-Главной целью проекта является практика использования фреймворка React с использованием Storybook
+The main goal of the project is to practice using the React framework with Storybook.
 
-## Технологии
+## Technologies
 
-Перечисли основные технологии и инструменты, использованные в проекте:
+List the main technologies and tools used in the project:
 
 - SCSS, JavaScript, TS, HTML
 - React
@@ -14,49 +14,50 @@
 
 ## Изучаем имеющиеся компоненты
 
-[Макет проекта](https://www.figma.com/file/FEeiiGLOsE7ktXbPpBxYoD/Custom-dropdown?type=design&node-id=0%3A1&mode=design&t=eXRJnWC6Xsuw0qR4-1)
+[Figma](https://www.figma.com/file/FEeiiGLOsE7ktXbPpBxYoD/Custom-dropdown?type=design&node-id=0%3A1&mode=design&t=eXRJnWC6Xsuw0qR4-1)
 
-Для запуска проекта выполните:
+To run the project, execute:
 
 ```
 npm run start
 ```
 
-Для запуска Storybook выполните:
+To launch Storybook, execute:
 
 ```
 npm run storybook
 ```
 
-Для запуска линтера для стилей выполните:
+To run the style linter, execute:
 
 ```
 npm run stylelint
 ```
 
-Для запуска линтера выполните:
+To run the linter, execute:
 
 ```
 npm run lint
 ```
 
-Для запуска форматтера выполните:
+To run the formatter, execute:
 
 ```
 npm run format
 ```
 
-### Функциональные требования:
+### Functional Requirements:
 
-- При нажатии на «стрелку» открывается сайдбар с настройками, при повторном нажатии или клике вне сайдбар закрывается.
+When clicking the "arrow", a settings sidebar opens; clicking it again or clicking outside closes the sidebar.
 
-- При изменении настроек в сайдбаре они не применяются сразу.
+When changing settings in the sidebar, they are not applied immediately.
 
-- После нажатия на «применить» стили применяются к статье.
+After clicking "apply", the styles are applied to the article.
 
-- При нажатии «сбросить» настройки в форме сбрасываются на начальные, которые были при открытии страницы, и стили применяются к статье.
+When clicking "reset", the form settings revert to the initial ones that were present when the page was first opened, and the styles are applied to the article.
 
-### Обеспечение передачи данных между формой и страницей
+### Ensuring Data Transfer Between the Form and the Page
 
-- Реализовано отдельное сохранение состояния страницы и состояние формы. Обеспечено применение нового состояния после нажатия на «применить».
-  Сделано через CSS-переменные на основе которых строится стилизация, что заданы все вместе на уровне приложения в компоненте App.
+Implemented separate state management for the page and the form. The new state is applied after clicking "apply".
+
+This was done using CSS variables, which are set globally at the application level in the App component, and based on which the styling is built.
