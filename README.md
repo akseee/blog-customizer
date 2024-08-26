@@ -4,6 +4,8 @@ In this project, we implemented the customization of a blog page through an open
 
 The main goal of the project is to practice using the React framework with Storybook.
 
+[Deploy](https://akseee-customizer.netlify.app/)
+
 ## Technologies
 
 List the main technologies and tools used in the project:
@@ -12,7 +14,7 @@ List the main technologies and tools used in the project:
 - React
 - Stylelint, Husky, Storybook, Webpack
 
-## Изучаем имеющиеся компоненты
+## Installation
 
 [Figma](https://www.figma.com/file/FEeiiGLOsE7ktXbPpBxYoD/Custom-dropdown?type=design&node-id=0%3A1&mode=design&t=eXRJnWC6Xsuw0qR4-1)
 
@@ -48,13 +50,13 @@ npm run format
 
 ### Functional Requirements:
 
-When clicking the "arrow", a settings sidebar opens; clicking it again or clicking outside closes the sidebar.
+- When clicking the "arrow", a settings sidebar opens; clicking it again or clicking outside closes the sidebar.
 
-When changing settings in the sidebar, they are not applied immediately.
+- When changing settings in the sidebar, they are not applied immediately.
 
-After clicking "apply", the styles are applied to the article.
+- After clicking "apply", the styles are applied to the article.
 
-When clicking "reset", the form settings revert to the initial ones that were present when the page was first opened, and the styles are applied to the article.
+- When clicking "reset", the form settings revert to the initial ones that were present when the page was first opened, and the styles are applied to the article.
 
 ### Ensuring Data Transfer Between the Form and the Page
 
